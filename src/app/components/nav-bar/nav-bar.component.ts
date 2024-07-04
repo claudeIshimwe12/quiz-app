@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 // import iconSunLight from '../../../assets/images/icon-sun-light.svg';
 @Component({
   selector: 'app-nav-bar',
@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent {
+  @Input() logo: string | undefined = '';
   isDark: boolean = false;
 
   toggleDarkMode() {
     this.isDark = !this.isDark;
     document.documentElement.classList.toggle('dark');
-    console.log(this.isDark, '..............');
   }
 }

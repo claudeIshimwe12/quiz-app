@@ -1,5 +1,25 @@
 <div
-  class="dark:bg-dark-navy bg-light-greyish bg-[url('./assets/images/pattern-background-mobile-light.svg')] dark:bg-[url('./assets/images/pattern-background-mobile-dark.svg')] sm:bg-[url('./assets/images/pattern-background-mobile-light.svg')] sm:dark:bg-[url('./assets/images/pattern-background-tablet-dark.svg')] md:bg-[url('./assets/images/pattern-background-desktop-light.svg')] md:dark:bg-[url('./assets/images/pattern-background-desktop-dark.svg')] h-screen w-full bg-auto"
+  class="dark:bg-dark-navy bg-light-greyish bg-[url('./assets/images/pattern-background-mobile-light.svg')] dark:bg-[url('./assets/images/pattern-background-mobile-dark.svg')] sm:bg-[url('./assets/images/pattern-background-mobile-light.svg')] sm:dark:bg-[url('./assets/images/pattern-background-tablet-dark.svg')] md:bg-[url('./assets/images/pattern-background-desktop-light.svg')] md:dark:bg-[url('./assets/images/pattern-background-desktop-dark.svg')] min-h-screen py-4 w-full bg-auto"
 >
-  <app-nav-bar></app-nav-bar>
+  <app-nav-bar [logo]="currentQuestion?.icon"></app-nav-bar>
+  <div class="mb-12" *ngIf="!isQuizStarted">
+    <div class="text-start w-full px-4">
+      <h1 class="text-dark-navy dark:text-white text-4xl font-light">
+        Welcome to the
+      </h1>
+      <h1 class="text-dark-navy my-4 dark:text-white text-4xl font-medium">
+        Frontend Quiz!
+      </h1>
+      <p class="text-grey-navy dark:text-white italic text-sm">
+        Pick a subject to get started
+      </p>
+    </div>
+    <div *ngFor="let subject of subjects">
+      <app-card
+        (click)="handleClick(subject)"
+        [icon]="subject.icon"
+        [subject]="subject.title"
+      ></app-card>
+    </div>
+  </div>
 </div>

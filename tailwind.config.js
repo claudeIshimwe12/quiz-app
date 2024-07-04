@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       colors: {
         puple: "#A729F5",
-        "dark-navy": "#3B4D66",
+        "dark-navy": "#313E51",
         navy: "#3B4D66",
         "grey-navy": "#626C7F",
         "light-bluish": "#ABC1E1",
