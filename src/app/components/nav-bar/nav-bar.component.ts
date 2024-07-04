@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent {
-  // iconSunLight = iconSunLight;
+  toggleDarkMode() {
+    document.documentElement.classList.toggle('dark');
+  }
 }
