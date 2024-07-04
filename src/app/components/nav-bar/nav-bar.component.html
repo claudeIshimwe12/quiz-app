@@ -2,9 +2,18 @@
   <div></div>
   <div class="buttons flex justify-between">
     <div>
-      <img src="./assets/images/icon-sun-dark.svg" alt="sun icon" />
+      <img
+        src="./assets/images/icon-sun-dark.svg"
+        *ngIf="!isDark"
+        alt="sun icon"
+      />
+      <img
+        src="./assets/images/icon-sun-light.svg"
+        *ngIf="isDark"
+        alt="sun icon"
+      />
     </div>
-    <div>
+    <div class="mx-2">
       <img
         src="./assets/images/icon-toggle.svg"
         alt="dark mode toggler"
@@ -12,7 +21,16 @@
       />
     </div>
     <div>
-      <img src="./assets/images/icon-moon-dark.svg" alt="moon icon" />
+      <img
+        src="./assets/images/icon-moon-light.svg"
+        *ngIf="isDark"
+        alt="moon icon"
+      />
+      <img
+        src="./assets/images/icon-moon-dark.svg"
+        *ngIf="!isDark"
+        alt="moon icon"
+      />
     </div>
   </div>
 </nav>

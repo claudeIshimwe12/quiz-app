@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent {
+  isDark: boolean = false;
+
   toggleDarkMode() {
+    this.isDark = !this.isDark;
     document.documentElement.classList.toggle('dark');
+    console.log(this.isDark, '..............');
   }
 }
