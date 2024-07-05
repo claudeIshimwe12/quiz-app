@@ -1,9 +1,24 @@
 <div
   class="flex justify-start p-2 my-4 mx-4 rounded-xl items-center bg-white dark:bg-navy"
+  *ngIf="icon"
 >
-  <img [src]="icon" *ngIf="icon" class="mr-4 p-2" />
+  <img [src]="icon" class="mr-4 p-2" />
 
   <h1 class="font-medium dark:text-white">
+    {{ subject }}
+  </h1>
+</div>
+
+<div
+  class="flex justify-start items-center rounded-md bg-white p-4 dark:bg-navy mb-4"
+  *ngIf="char"
+>
+  <h1
+    class="bg-light-greyish py-2 px-4 rounded-md mr-4 dark:bg-light-greyish text-lg text-grey-navy font-bold"
+  >
+    {{ char }}
+  </h1>
+  <h1 class="dark:text-white text-lg font-medium">
     {{ subject }}
   </h1>
 </div>
