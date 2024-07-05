@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class CardComponent {
   @Input() icon: string = '';
   @Input() subject: string = '';
+  @Input() index: number = 0;
 }

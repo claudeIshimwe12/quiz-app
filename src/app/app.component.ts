@@ -13,13 +13,11 @@ export class AppComponent {
     icon: string;
     questions: Question[];
   }[] = QUESTIONS;
-  currentQuestion:
-    | {
-        title: string;
-        icon: string;
-        questions: Question[];
-      }
-    | undefined = {
+  currentQuestion: {
+    title: string;
+    icon: string;
+    questions: Question[];
+  } = {
     title: '',
     icon: '',
     questions: [{ question: '', options: [''], answer: '' }],

@@ -1,0 +1,65 @@
+<div>
+  <h1 class="text-sm text-grey-navy dark:text-light-bluish px-4">
+    Question {{ currentQuestion + 1 }} out of {{ questions.length }}
+  </h1>
+  <h1 class="text-dark-navy text-xl font-medium px-4 my-4 dark:text-white">
+    {{ questions[currentQuestion].question }}
+  </h1>
+  <!-- <div *ngFor="let option of questions[currentQuestion].options; let i = index">
+    <app-card [subject]="option" [index]="i"></app-card>
+  </div> -->
+  <div class="p-4">
+    <div
+      class="flex justify-start items-center rounded-md bg-white p-4 dark:bg-navy mb-4"
+      (click)="handleAttempt(questions[currentQuestion].options[0])"
+    >
+      <h1
+        class="bg-light-greyish py-2 px-4 rounded-md mr-4 dark:bg-light-greyish text-lg text-grey-navy font-bold"
+      >
+        A
+      </h1>
+      <h1 class="dark:text-white text-lg font-medium">
+        {{ questions[currentQuestion].options[0] }}
+      </h1>
+    </div>
+    <div
+      class="flex justify-start items-center rounded-md bg-white p-4 dark:bg-navy mb-4"
+      (click)="handleAttempt(questions[currentQuestion].options[1])"
+    >
+      <h1
+        class="bg-light-greyish py-2 px-4 rounded-md mr-4 dark:bg-light-greyish text-lg text-grey-navy font-bold"
+      >
+        B
+      </h1>
+      <h1 class="dark:text-white text-lg font-medium">
+        {{ questions[currentQuestion].options[1] }}
+      </h1>
+    </div>
+    <div
+      class="flex justify-start items-center rounded-md bg-white p-4 dark:bg-navy mb-4"
+      (click)="handleAttempt(questions[currentQuestion].options[2])"
+    >
+      <h1
+        class="bg-light-greyish py-2 px-4 rounded-md mr-4 dark:bg-light-greyish text-lg text-grey-navy font-bold"
+      >
+        C
+      </h1>
+      <h1 class="dark:text-white text-lg font-medium">
+        {{ questions[currentQuestion].options[2] }}
+      </h1>
+    </div>
+    <div
+      class="flex justify-start items-center rounded-md bg-white p-4 dark:bg-navy mb-4"
+      (click)="handleAttempt(questions[currentQuestion].options[3])"
+    >
+      <h1
+        class="bg-light-greyish py-2 px-4 rounded-md mr-4 dark:bg-light-greyish text-lg text-grey-navy font-bold"
+      >
+        D
+      </h1>
+      <h1 class="dark:text-white text-lg font-medium">
+        {{ questions[currentQuestion].options[3] }}
+      </h1>
+    </div>
+  </div>
+</div>
