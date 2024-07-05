@@ -12,13 +12,17 @@ export class QuestionComponent {
   grade: number = 0;
   currentQuestion: number = 0;
   isAttempted: boolean = false;
+  attemptAnswer: string = '';
+  isCorrect: boolean = false;
+  isSubmitted: boolean = false;
   opt1: boolean = false;
   opt2: boolean = false;
   opt3: boolean = false;
   opt4: boolean = false;
 
   handleAttempt(opt: string, index: number) {
-    this.isAttempted = true;
+    this.attemptAnswer = opt;
+    // this.isAttempted = true;
     switch (index) {
       case 0: {
         this.opt2 = false;
@@ -49,10 +53,24 @@ export class QuestionComponent {
         break;
       }
     }
-    if (this.questions[this.currentQuestion].answer == opt) {
-      console.log('It is correct');
-    } else {
-      console.log('You missed');
+  }
+
+  onSubmit() {
+    if (this.attemptAnswer == '') {
+      this.isAttempted = true;
+
+      return;
     }
+    this.isAttempted = false;
+    this.isSubmitted = true;
+
+    if (this.questions[this.currentQuestion].answer == this.attemptAnswer) {
+      console.log('correct');
+    }
+  }
+  onNext() {
+    if (this.currentQuestion == this.questions.length - 1) return;
+    this.currentQuestion = this.currentQuestion + 1;
+    this.isSubmitted = false;
   }
 }
