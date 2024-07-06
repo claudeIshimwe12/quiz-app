@@ -9,6 +9,8 @@ export class QuestionComponent {
   @Input() questions: Question[] = [
     { question: '', options: [''], answer: '' },
   ];
+  @Input() icon: string = '';
+  @Input() title: string = '';
   grade: number = 0;
   currentQuestion: number = 0;
   isAttempted: boolean = false;
@@ -34,6 +36,8 @@ export class QuestionComponent {
   threeIncorrect: boolean = false;
   fourCorrect: boolean = false;
   fourIncorrect: boolean = false;
+
+  showGrade: boolean = false;
 
   handleAttempt(opt: string, index: number) {
     this.attemptAnswer = opt;
@@ -93,6 +97,7 @@ export class QuestionComponent {
 
     // Check if the attempted answer is correct
     if (this.attemptIndex === this.correctAnswerIndex) {
+      this.grade = this.grade + 1;
       switch (this.attemptIndex) {
         case 0: {
           this.opt1 = false;
@@ -147,7 +152,6 @@ export class QuestionComponent {
     }
   }
   onNext() {
-    if (this.currentQuestion == this.questions.length - 1) return;
     this.currentQuestion = this.currentQuestion + 1;
     this.isAttempted = false;
     this.attemptAnswer = '';
@@ -176,5 +180,10 @@ export class QuestionComponent {
     this.threeIncorrect = false;
     this.fourCorrect = false;
     this.fourIncorrect = false;
+
+    if (this.currentQuestion == this.questions.length - 1) {
+      this.isAttempted = false;
+      this.showGrade = true;
+    }
   }
 }

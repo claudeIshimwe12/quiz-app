@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!showGrade">
   <h1 class="text-sm text-grey-navy dark:text-light-bluish px-4">
     Question {{ currentQuestion + 1 }} out of {{ questions.length }}
   </h1>
@@ -44,9 +44,9 @@
 
             'text-white': opt1,
             'bg-green': oneCorrect,
-            'text-slate-50': oneCorrect,
             'bg-red': oneIncorrect,
-            'text-slate-100': oneIncorrect
+            'dark:bg-red': oneIncorrect,
+            'dark:text-white': oneIncorrect,
           }"
         >
           A
@@ -114,9 +114,9 @@
 
             'text-white': opt2,
             'bg-green': twoCorrect,
-            'text-slate-50': twoCorrect,
             'bg-red': twoIncorrect,
-            'text-slate-100': twoIncorrect
+            'dark:bg-red': twoIncorrect,
+            'dark:text-white': twoIncorrect
           }"
         >
           B
@@ -185,9 +185,8 @@
 
             'text-white': opt3,
             'bg-green': threeCorrect,
-            'text-slate-50': threeCorrect,
             'bg-red': threeIncorrect,
-            'text-slate-100': threeIncorrect
+            'dark:text-white': threeIncorrect
           }"
         >
           C
@@ -258,7 +257,8 @@
             'bg-green': fourCorrect,
             'text-slate-50': fourCorrect,
             'bg-red': fourIncorrect,
-            'text-slate-100': fourIncorrect
+            'dark:bg-red': fourIncorrect,
+            'dark:text-white': fourIncorrect
           }"
         >
           D
@@ -324,5 +324,21 @@
       </span>
       <span>Please select an answer</span>
     </div>
+  </div>
+</div>
+<div *ngIf="showGrade" class="p-4">
+  <div>
+    <h1 class="text-4xl font-thin">Quiz completed</h1>
+    <h1 class="text-4xl font-bold">You scored...</h1>
+  </div>
+  <div
+    class="bg-white flex flex-col align-middle items-center p-8 my-4 rounded-lg"
+  >
+    <div class="flex items-center">
+      <img [src]="icon" alt="questions icon" class="mx-4" />
+      <h1 class="text-lg">{{ title }}</h1>
+    </div>
+    <h1 class="text-8xl my-4">{{ grade }}</h1>
+    <h1 class="text-lg">Out of {{ questions.length }}</h1>
   </div>
 </div>
