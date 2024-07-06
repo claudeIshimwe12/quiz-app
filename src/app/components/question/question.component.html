@@ -12,123 +12,290 @@
     <div
       [ngClass]="{
         flex: true,
-        'justify-start': true,
+        'justify-between': true,
         'items-center': true,
         'rounded-md': true,
         'bg-white': true,
         'p-4': true,
         'dark:bg-navy': true,
         'mb-4': true,
-        'border-2': opt1,
-        'border-puple': opt1
+        'border-2': true,
+        'border-puple': opt1,
+
+        'border-green': oneCorrect,
+        'border-red': oneIncorrect
       }"
       (click)="handleAttempt(questions[currentQuestion].options[0], 0)"
     >
-      <h1
-        [ngClass]="{
-          'bg-light-greyish': !opt1,
-          'py-2': true,
-          'px-4': true,
-          'rounded-md': true,
-          'mr-4': true,
-          'dark:bg-light-greyish': true,
-          'text-lg': true,
-          'text-grey-navy': true,
-          'font-bold': true,
-          'bg-puple': opt1,
-          'dark:bg-puple': opt1,
+      <div class="flex items-center">
+        <h1
+          [ngClass]="{
+            'bg-light-greyish': !opt1,
+            'py-2': true,
+            'px-4': true,
+            'rounded-md': true,
+            'mr-4': true,
+            'dark:bg-light-greyish': true,
+            'text-lg': true,
+            'text-grey-navy': true,
+            'font-bold': true,
+            'bg-puple': opt1,
+            'dark:bg-puple': opt1,
 
-          'text-white': opt1,
-         
-        }"
-      >
-        A
-      </h1>
-      <h1
-        class="dark:text-white text-lg font-medium"
-        [ngClass]="{
-          'text-black': opt1
-        }"
-      >
-        {{ questions[currentQuestion].options[0] }}
-      </h1>
+            'text-white': opt1,
+            'bg-green': oneCorrect,
+            'text-slate-50': oneCorrect,
+            'bg-red': oneIncorrect,
+            'text-slate-100': oneIncorrect
+          }"
+        >
+          A
+        </h1>
+        <h1
+          class="dark:text-white text-lg font-medium"
+          [ngClass]="{
+            'text-black': opt1
+          }"
+        >
+          {{ questions[currentQuestion].options[0] }}
+        </h1>
+      </div>
+      <div *ngIf="oneIsCorrect">
+        <span
+          ><svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 5C21.9698 5 23.9204 5.38799 25.7403 6.14181C27.5601 6.89563 29.2137 8.00052 30.6066 9.3934C31.9995 10.7863 33.1044 12.4399 33.8582 14.2597C34.612 16.0796 35 18.0302 35 20C35 21.9698 34.612 23.9204 33.8582 25.7403C33.1044 27.5601 31.9995 29.2137 30.6066 30.6066C29.2137 31.9995 27.5601 33.1044 25.7403 33.8582C23.9204 34.612 21.9698 35 20 35C16.0218 35 12.2064 33.4196 9.3934 30.6066C6.58035 27.7936 5 23.9782 5 20C5 16.0218 6.58035 12.2064 9.3934 9.3934C12.2064 6.58035 16.0218 5 20 5ZM20 7.5C16.6848 7.5 13.5054 8.81696 11.1612 11.1612C8.81696 13.5054 7.5 16.6848 7.5 20C7.5 23.3152 8.81696 26.4946 11.1612 28.8388C13.5054 31.183 16.6848 32.5 20 32.5C23.3152 32.5 26.4946 31.183 28.8388 28.8388C31.183 26.4946 32.5 23.3152 32.5 20C32.5 16.6848 31.183 13.5054 28.8388 11.1612C26.4946 8.81696 23.3152 7.5 20 7.5ZM18.125 22.605L25.3 15.41C25.5201 15.1877 25.8155 15.0559 26.1279 15.0408C26.4404 15.0257 26.7471 15.1282 26.9876 15.3282C27.2282 15.5283 27.3849 15.8112 27.427 16.1211C27.4691 16.4311 27.3935 16.7456 27.215 17.0025L27.07 17.1775L19.01 25.2575C18.8035 25.465 18.5307 25.5933 18.2392 25.6203C17.9478 25.6473 17.6561 25.5711 17.415 25.405L17.24 25.26L12.865 20.885C12.6435 20.6645 12.5127 20.3691 12.4982 20.0569C12.4838 19.7448 12.5868 19.4385 12.7869 19.1985C12.9871 18.9586 13.2699 18.8022 13.5795 18.7604C13.8892 18.7186 14.2033 18.7942 14.46 18.9725L14.635 19.115L18.125 22.605Z"
+              fill="#26D782"
+            />
+          </svg>
+        </span>
+      </div>
+      <div *ngIf="oneIncorrect">
+        <img src="./assets/images/icon-incorrect.svg" alt="incorrect icon" />
+      </div>
     </div>
     <div
       [ngClass]="{
         flex: true,
-        'justify-start': true,
+        'justify-between': true,
         'items-center': true,
         'rounded-md': true,
         'bg-white': true,
         'p-4': true,
         'dark:bg-navy': true,
         'mb-4': true,
-        'border-2': opt2,
-        'border-puple': opt2
+        'border-2': true,
+        'border-puple': opt2,
+        'border-green': twoCorrect,
+        'border-red': twoIncorrect
       }"
       (click)="handleAttempt(questions[currentQuestion].options[1], 1)"
     >
-      <h1
-        class="bg-light-greyish py-2 px-4 rounded-md mr-4 dark:bg-light-greyish text-lg text-grey-navy font-bold"
-      >
-        B
-      </h1>
-      <h1 class="dark:text-white text-lg font-medium">
-        {{ questions[currentQuestion].options[1] }}
-      </h1>
+      <div class="flex items-center">
+        <h1
+          [ngClass]="{
+            'bg-light-greyish': !opt2,
+            'py-2': true,
+            'px-4': true,
+            'rounded-md': true,
+            'mr-4': true,
+            'dark:bg-light-greyish': true,
+            'text-lg': true,
+            'text-grey-navy': true,
+            'font-bold': true,
+            'bg-puple': opt2,
+            'dark:bg-puple': opt2,
+
+            'text-white': opt2,
+            'bg-green': twoCorrect,
+            'text-slate-50': twoCorrect,
+            'bg-red': twoIncorrect,
+            'text-slate-100': twoIncorrect
+          }"
+        >
+          B
+        </h1>
+        <h1
+          class="dark:text-white text-lg font-medium"
+          [ngClass]="{
+            'text-black': opt2
+          }"
+        >
+          {{ questions[currentQuestion].options[1] }}
+        </h1>
+      </div>
+      <div *ngIf="twoIsCorrect">
+        <span
+          ><svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 5C21.9698 5 23.9204 5.38799 25.7403 6.14181C27.5601 6.89563 29.2137 8.00052 30.6066 9.3934C31.9995 10.7863 33.1044 12.4399 33.8582 14.2597C34.612 16.0796 35 18.0302 35 20C35 21.9698 34.612 23.9204 33.8582 25.7403C33.1044 27.5601 31.9995 29.2137 30.6066 30.6066C29.2137 31.9995 27.5601 33.1044 25.7403 33.8582C23.9204 34.612 21.9698 35 20 35C16.0218 35 12.2064 33.4196 9.3934 30.6066C6.58035 27.7936 5 23.9782 5 20C5 16.0218 6.58035 12.2064 9.3934 9.3934C12.2064 6.58035 16.0218 5 20 5ZM20 7.5C16.6848 7.5 13.5054 8.81696 11.1612 11.1612C8.81696 13.5054 7.5 16.6848 7.5 20C7.5 23.3152 8.81696 26.4946 11.1612 28.8388C13.5054 31.183 16.6848 32.5 20 32.5C23.3152 32.5 26.4946 31.183 28.8388 28.8388C31.183 26.4946 32.5 23.3152 32.5 20C32.5 16.6848 31.183 13.5054 28.8388 11.1612C26.4946 8.81696 23.3152 7.5 20 7.5ZM18.125 22.605L25.3 15.41C25.5201 15.1877 25.8155 15.0559 26.1279 15.0408C26.4404 15.0257 26.7471 15.1282 26.9876 15.3282C27.2282 15.5283 27.3849 15.8112 27.427 16.1211C27.4691 16.4311 27.3935 16.7456 27.215 17.0025L27.07 17.1775L19.01 25.2575C18.8035 25.465 18.5307 25.5933 18.2392 25.6203C17.9478 25.6473 17.6561 25.5711 17.415 25.405L17.24 25.26L12.865 20.885C12.6435 20.6645 12.5127 20.3691 12.4982 20.0569C12.4838 19.7448 12.5868 19.4385 12.7869 19.1985C12.9871 18.9586 13.2699 18.8022 13.5795 18.7604C13.8892 18.7186 14.2033 18.7942 14.46 18.9725L14.635 19.115L18.125 22.605Z"
+              fill="#26D782"
+            />
+          </svg>
+        </span>
+      </div>
+      <div *ngIf="twoIncorrect">
+        <img src="./assets/images/icon-incorrect.svg" alt="incorrect icon" />
+      </div>
     </div>
+
     <div
       [ngClass]="{
         flex: true,
-        'justify-start': true,
+        'justify-between': true,
         'items-center': true,
         'rounded-md': true,
         'bg-white': true,
         'p-4': true,
         'dark:bg-navy': true,
         'mb-4': true,
-        'border-2': opt3,
-        'border-puple': opt3
+        'border-2': true,
+        'border-puple': opt3,
+        'border-green': threeCorrect,
+        'border-red': threeIncorrect
       }"
       (click)="handleAttempt(questions[currentQuestion].options[2], 2)"
     >
-      <h1
-        class="bg-light-greyish py-2 px-4 rounded-md mr-4 dark:bg-light-greyish text-lg text-grey-navy font-bold"
-      >
-        C
-      </h1>
-      <h1 class="dark:text-white text-lg font-medium">
-        {{ questions[currentQuestion].options[2] }}
-      </h1>
+      <div class="flex items-center">
+        <h1
+          [ngClass]="{
+            'bg-light-greyish': !opt3,
+            'py-2': true,
+            'px-4': true,
+            'rounded-md': true,
+            'mr-4': true,
+            'dark:bg-light-greyish': true,
+            'text-lg': true,
+            'text-grey-navy': true,
+            'font-bold': true,
+            'bg-puple': opt3,
+            'dark:bg-puple': opt3,
+
+            'text-white': opt3,
+            'bg-green': threeCorrect,
+            'text-slate-50': threeCorrect,
+            'bg-red': threeIncorrect,
+            'text-slate-100': threeIncorrect
+          }"
+        >
+          C
+        </h1>
+        <h1
+          class="dark:text-white text-lg font-medium"
+          [ngClass]="{
+            'text-black': opt3
+          }"
+        >
+          {{ questions[currentQuestion].options[2] }}
+        </h1>
+      </div>
+      <div *ngIf="threeIsCorrect">
+        <span
+          ><svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 5C21.9698 5 23.9204 5.38799 25.7403 6.14181C27.5601 6.89563 29.2137 8.00052 30.6066 9.3934C31.9995 10.7863 33.1044 12.4399 33.8582 14.2597C34.612 16.0796 35 18.0302 35 20C35 21.9698 34.612 23.9204 33.8582 25.7403C33.1044 27.5601 31.9995 29.2137 30.6066 30.6066C29.2137 31.9995 27.5601 33.1044 25.7403 33.8582C23.9204 34.612 21.9698 35 20 35C16.0218 35 12.2064 33.4196 9.3934 30.6066C6.58035 27.7936 5 23.9782 5 20C5 16.0218 6.58035 12.2064 9.3934 9.3934C12.2064 6.58035 16.0218 5 20 5ZM20 7.5C16.6848 7.5 13.5054 8.81696 11.1612 11.1612C8.81696 13.5054 7.5 16.6848 7.5 20C7.5 23.3152 8.81696 26.4946 11.1612 28.8388C13.5054 31.183 16.6848 32.5 20 32.5C23.3152 32.5 26.4946 31.183 28.8388 28.8388C31.183 26.4946 32.5 23.3152 32.5 20C32.5 16.6848 31.183 13.5054 28.8388 11.1612C26.4946 8.81696 23.3152 7.5 20 7.5ZM18.125 22.605L25.3 15.41C25.5201 15.1877 25.8155 15.0559 26.1279 15.0408C26.4404 15.0257 26.7471 15.1282 26.9876 15.3282C27.2282 15.5283 27.3849 15.8112 27.427 16.1211C27.4691 16.4311 27.3935 16.7456 27.215 17.0025L27.07 17.1775L19.01 25.2575C18.8035 25.465 18.5307 25.5933 18.2392 25.6203C17.9478 25.6473 17.6561 25.5711 17.415 25.405L17.24 25.26L12.865 20.885C12.6435 20.6645 12.5127 20.3691 12.4982 20.0569C12.4838 19.7448 12.5868 19.4385 12.7869 19.1985C12.9871 18.9586 13.2699 18.8022 13.5795 18.7604C13.8892 18.7186 14.2033 18.7942 14.46 18.9725L14.635 19.115L18.125 22.605Z"
+              fill="#26D782"
+            />
+          </svg>
+        </span>
+      </div>
+      <div *ngIf="threeIncorrect">
+        <img src="./assets/images/icon-incorrect.svg" alt="incorrect icon" />
+      </div>
     </div>
+
     <div
       [ngClass]="{
         flex: true,
-        'justify-start': true,
+        'justify-between': true,
         'items-center': true,
         'rounded-md': true,
         'bg-white': true,
         'p-4': true,
         'dark:bg-navy': true,
         'mb-4': true,
-        'border-2': opt4,
-        'border-puple': opt4
+        'border-2': true,
+        'border-puple': opt4,
+        'border-green': fourCorrect,
+        'border-red': fourIncorrect
       }"
       (click)="handleAttempt(questions[currentQuestion].options[3], 3)"
     >
-      <h1
-        class="bg-light-greyish py-2 px-4 rounded-md mr-4 dark:bg-light-greyish text-lg text-grey-navy font-bold"
-      >
-        D
-      </h1>
-      <h1 class="dark:text-white text-lg font-medium">
-        {{ questions[currentQuestion].options[3] }}
-      </h1>
+      <div class="flex items-center">
+        <h1
+          [ngClass]="{
+            'bg-light-greyish': !opt4,
+            'py-2': true,
+            'px-4': true,
+            'rounded-md': true,
+            'mr-4': true,
+            'dark:bg-light-greyish': true,
+            'text-lg': true,
+            'text-grey-navy': true,
+            'font-bold': true,
+            'bg-puple': opt4,
+            'dark:bg-puple': opt4,
+
+            'text-white': opt4,
+            'bg-green': fourCorrect,
+            'text-slate-50': fourCorrect,
+            'bg-red': fourIncorrect,
+            'text-slate-100': fourIncorrect
+          }"
+        >
+          D
+        </h1>
+        <h1
+          class="dark:text-white text-lg font-medium"
+          [ngClass]="{
+            'text-black': opt4
+          }"
+        >
+          {{ questions[currentQuestion].options[3] }}
+        </h1>
+      </div>
+      <div *ngIf="fourIsCorrect">
+        <span
+          ><svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 5C21.9698 5 23.9204 5.38799 25.7403 6.14181C27.5601 6.89563 29.2137 8.00052 30.6066 9.3934C31.9995 10.7863 33.1044 12.4399 33.8582 14.2597C34.612 16.0796 35 18.0302 35 20C35 21.9698 34.612 23.9204 33.8582 25.7403C33.1044 27.5601 31.9995 29.2137 30.6066 30.6066C29.2137 31.9995 27.5601 33.1044 25.7403 33.8582C23.9204 34.612 21.9698 35 20 35C16.0218 35 12.2064 33.4196 9.3934 30.6066C6.58035 27.7936 5 23.9782 5 20C5 16.0218 6.58035 12.2064 9.3934 9.3934C12.2064 6.58035 16.0218 5 20 5ZM20 7.5C16.6848 7.5 13.5054 8.81696 11.1612 11.1612C8.81696 13.5054 7.5 16.6848 7.5 20C7.5 23.3152 8.81696 26.4946 11.1612 28.8388C13.5054 31.183 16.6848 32.5 20 32.5C23.3152 32.5 26.4946 31.183 28.8388 28.8388C31.183 26.4946 32.5 23.3152 32.5 20C32.5 16.6848 31.183 13.5054 28.8388 11.1612C26.4946 8.81696 23.3152 7.5 20 7.5ZM18.125 22.605L25.3 15.41C25.5201 15.1877 25.8155 15.0559 26.1279 15.0408C26.4404 15.0257 26.7471 15.1282 26.9876 15.3282C27.2282 15.5283 27.3849 15.8112 27.427 16.1211C27.4691 16.4311 27.3935 16.7456 27.215 17.0025L27.07 17.1775L19.01 25.2575C18.8035 25.465 18.5307 25.5933 18.2392 25.6203C17.9478 25.6473 17.6561 25.5711 17.415 25.405L17.24 25.26L12.865 20.885C12.6435 20.6645 12.5127 20.3691 12.4982 20.0569C12.4838 19.7448 12.5868 19.4385 12.7869 19.1985C12.9871 18.9586 13.2699 18.8022 13.5795 18.7604C13.8892 18.7186 14.2033 18.7942 14.46 18.9725L14.635 19.115L18.125 22.605Z"
+              fill="#26D782"
+            />
+          </svg>
+        </span>
+      </div>
+      <div *ngIf="fourIncorrect">
+        <img src="./assets/images/icon-incorrect.svg" alt="incorrect icon" />
+      </div>
     </div>
 
     <button
       class="p-4 bg-puple w-full rounded-lg text-white font-bold"
-      (click)="onSubmit()"
+      (click)="onSubmit($event)"
       *ngIf="!isSubmitted"
     >
       Submit Answer
