@@ -1,14 +1,20 @@
-<div *ngIf="!showGrade">
-  <h1 class="text-sm text-grey-navy dark:text-light-bluish px-4">
-    Question {{ currentQuestion + 1 }} out of {{ questions.length }}
-  </h1>
-  <h1 class="text-dark-navy text-xl font-medium px-4 my-4 dark:text-white">
-    {{ questions[currentQuestion].question }}
-  </h1>
+<div *ngIf="!showGrade" class="lg:flex justify-between">
+  <div class="lg:w-full">
+    <h1
+      class="text-sm text-grey-navy dark:text-light-bluish px-4 sm:text-lg lg:text-xl"
+    >
+      Question {{ currentQuestion + 1 }} out of {{ questions.length }}
+    </h1>
+    <h1
+      class="text-dark-navy text-xl font-medium px-4 my-4 dark:text-white lg:text-5xl"
+    >
+      {{ questions[currentQuestion].question }}
+    </h1>
+  </div>
   <!-- <div *ngFor="let option of questions[currentQuestion].options; let i = index">
     <app-card [subject]="option" [index]="i"></app-card>
   </div> -->
-  <div class="p-4">
+  <div class="p-4 lg:w-full">
     <div
       [ngClass]="{
         flex: true,
@@ -326,27 +332,29 @@
     </div>
   </div>
 </div>
-<div *ngIf="showGrade" class="p-4">
-  <div>
+<div *ngIf="showGrade" class="p-4 lg:flex justify-between">
+  <div class="w-full">
     <h1 class="text-4xl font-thin dark:text-white">Quiz completed</h1>
     <h1 class="text-4xl font-bold dark:text-white">You scored...</h1>
   </div>
-  <div
-    class="bg-white dark:bg-navy flex flex-col align-middle items-center p-8 my-4 rounded-lg"
-  >
-    <div class="flex items-center">
-      <img [src]="icon" alt="questions icon" class="mx-4" />
-      <h1 class="text-lg dark:text-white font-bold">{{ title }}</h1>
+  <div class="lg:w-full">
+    <div
+      class="bg-white dark:bg-navy flex flex-col align-middle items-center p-8 my-4 rounded-lg lg:w-full"
+    >
+      <div class="flex items-center">
+        <img [src]="icon" alt="questions icon" class="mx-4" />
+        <h1 class="text-lg dark:text-white font-bold">{{ title }}</h1>
+      </div>
+      <h1 class="text-8xl my-4 dark:text-white font-extrabold">{{ grade }}</h1>
+      <h1 class="text-lg text-grey-navy dark:text-light-bluish">
+        Out of {{ questions.length }}
+      </h1>
     </div>
-    <h1 class="text-8xl my-4 dark:text-white font-extrabold">{{ grade }}</h1>
-    <h1 class="text-lg text-grey-navy dark:text-light-bluish">
-      Out of {{ questions.length }}
-    </h1>
+    <button
+      (click)="onPlayAgain()"
+      class="p-4 w-full bg-puple text-white rounded-lg font-bold"
+    >
+      Play Again
+    </button>
   </div>
-  <button
-    (click)="onPlayAgain()"
-    class="p-4 w-full bg-puple text-white rounded-lg font-bold"
-  >
-    Play Again
-  </button>
 </div>
