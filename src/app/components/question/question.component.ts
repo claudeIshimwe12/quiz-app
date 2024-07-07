@@ -186,4 +186,7 @@ export class QuestionComponent {
       this.showGrade = true;
     }
   }
+  onPlayAgain() {
+    location.reload();
+  }
 }
