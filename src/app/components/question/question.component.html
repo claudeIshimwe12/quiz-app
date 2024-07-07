@@ -29,7 +29,8 @@
         'border-puple': opt1,
 
         'border-green': oneCorrect,
-        'border-red': oneIncorrect
+        'border-red': oneIncorrect,
+        'shadow-md': true
       }"
       (click)="handleAttempt(questions[currentQuestion].options[0], 0)"
     >
@@ -100,7 +101,8 @@
         'border-2': opt2 || twoCorrect || twoIncorrect,
         'border-puple': opt2,
         'border-green': twoCorrect,
-        'border-red': twoIncorrect
+        'border-red': twoIncorrect,
+        'shadow-md': true
       }"
       (click)="handleAttempt(questions[currentQuestion].options[1], 1)"
     >
@@ -172,7 +174,8 @@
         'border-2': opt3 || threeCorrect || threeIncorrect,
         'border-puple': opt3,
         'border-green': threeCorrect,
-        'border-red': threeIncorrect
+        'border-red': threeIncorrect,
+        'shadow-md': true
       }"
       (click)="handleAttempt(questions[currentQuestion].options[2], 2)"
     >
@@ -244,7 +247,8 @@
         'border-2': opt4 || fourCorrect || fourIncorrect,
         'border-puple': opt4,
         'border-green': fourCorrect,
-        'border-red': fourIncorrect
+        'border-red': fourIncorrect,
+        'shadow-md': true
       }"
       (click)="handleAttempt(questions[currentQuestion].options[3], 3)"
     >
@@ -345,7 +349,7 @@
   </div>
   <div class="lg:w-full">
     <div
-      class="bg-white dark:bg-navy flex flex-col align-middle items-center p-8 my-4 rounded-lg lg:w-full"
+      class="bg-white dark:bg-navy flex flex-col align-middle items-center p-8 my-4 rounded-lg lg:w-full shadow-md"
     >
       <div class="flex items-center">
         <img [src]="icon" alt="questions icon" class="mx-4" />
@@ -358,7 +362,7 @@
     </div>
     <button
       (click)="onPlayAgain()"
-      class="p-4 w-full bg-puple text-white rounded-lg font-bold"
+      class="p-4 w-full bg-puple text-white rounded-lg font-bold shadow-md"
     >
       Play Again
     </button>
