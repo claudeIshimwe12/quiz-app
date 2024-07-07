@@ -6,7 +6,7 @@
       Question {{ currentQuestion + 1 }} out of {{ questions.length }}
     </h1>
     <h1
-      class="text-dark-navy text-xl font-medium px-4 my-4 dark:text-white lg:text-5xl"
+      class="text-dark-navy text-xl font-medium px-4 my-4 dark:text-white lg:text-5xl lg:my-4"
     >
       {{ questions[currentQuestion].question }}
     </h1>
@@ -25,7 +25,7 @@
         'p-4': true,
         'dark:bg-navy': true,
         'mb-4': true,
-        'border-2': true,
+        'border-2': opt1 || oneCorrect || oneIncorrect,
         'border-puple': opt1,
 
         'border-green': oneCorrect,
@@ -36,23 +36,24 @@
       <div class="flex items-center">
         <h1
           [ngClass]="{
-            'bg-light-greyish': !opt1,
+            'bg-light-greyish': true && !oneCorrect,
             'py-2': true,
             'px-4': true,
             'rounded-md': true,
             'mr-4': true,
             'dark:bg-light-greyish': true,
             'text-lg': true,
-            'text-grey-navy': true,
+            'text-grey-navy': true && !oneCorrect && oneIncorrect!,
             'font-bold': true,
+            'bg-green': oneCorrect,
+            'dark:bg-green': oneCorrect,
             'bg-puple': opt1,
             'dark:bg-puple': opt1,
 
-            'text-white': opt1,
-            'bg-green': oneCorrect,
+            'text-white': opt1 || oneCorrect || oneIncorrect,
             'bg-red': oneIncorrect,
             'dark:bg-red': oneIncorrect,
-            'dark:text-white': oneIncorrect,
+            'dark:text-white': oneIncorrect
           }"
         >
           A
@@ -96,7 +97,7 @@
         'p-4': true,
         'dark:bg-navy': true,
         'mb-4': true,
-        'border-2': true,
+        'border-2': opt2 || twoCorrect || twoIncorrect,
         'border-puple': opt2,
         'border-green': twoCorrect,
         'border-red': twoIncorrect
@@ -106,20 +107,21 @@
       <div class="flex items-center">
         <h1
           [ngClass]="{
-            'bg-light-greyish': !opt2,
+            'bg-light-greyish': true && !twoCorrect,
             'py-2': true,
             'px-4': true,
             'rounded-md': true,
             'mr-4': true,
             'dark:bg-light-greyish': true,
             'text-lg': true,
-            'text-grey-navy': true,
+            'text-grey-navy': true && !twoCorrect && twoIncorrect!,
             'font-bold': true,
+            'bg-green': twoCorrect,
+            'dark:bg-green': twoCorrect,
             'bg-puple': opt2,
             'dark:bg-puple': opt2,
 
-            'text-white': opt2,
-            'bg-green': twoCorrect,
+            'text-white': opt2 || twoCorrect || twoIncorrect,
             'bg-red': twoIncorrect,
             'dark:bg-red': twoIncorrect,
             'dark:text-white': twoIncorrect
@@ -167,7 +169,7 @@
         'p-4': true,
         'dark:bg-navy': true,
         'mb-4': true,
-        'border-2': true,
+        'border-2': opt3 || threeCorrect || threeIncorrect,
         'border-puple': opt3,
         'border-green': threeCorrect,
         'border-red': threeIncorrect
@@ -177,21 +179,23 @@
       <div class="flex items-center">
         <h1
           [ngClass]="{
-            'bg-light-greyish': !opt3,
+            'bg-light-greyish': true && !threeCorrect,
             'py-2': true,
             'px-4': true,
             'rounded-md': true,
             'mr-4': true,
             'dark:bg-light-greyish': true,
             'text-lg': true,
-            'text-grey-navy': true,
+            'text-grey-navy': true && !threeCorrect && threeIncorrect!,
             'font-bold': true,
+            'bg-green': threeCorrect,
+            'dark:bg-green': threeCorrect,
             'bg-puple': opt3,
             'dark:bg-puple': opt3,
 
-            'text-white': opt3,
-            'bg-green': threeCorrect,
+            'text-white': opt3 || threeCorrect || threeIncorrect,
             'bg-red': threeIncorrect,
+            'dark:bg-red': threeIncorrect,
             'dark:text-white': threeIncorrect
           }"
         >
@@ -237,7 +241,7 @@
         'p-4': true,
         'dark:bg-navy': true,
         'mb-4': true,
-        'border-2': true,
+        'border-2': opt4 || fourCorrect || fourIncorrect,
         'border-puple': opt4,
         'border-green': fourCorrect,
         'border-red': fourIncorrect
@@ -247,21 +251,21 @@
       <div class="flex items-center">
         <h1
           [ngClass]="{
-            'bg-light-greyish': !opt4,
+            'bg-light-greyish': true && !fourCorrect,
             'py-2': true,
             'px-4': true,
             'rounded-md': true,
             'mr-4': true,
             'dark:bg-light-greyish': true,
             'text-lg': true,
-            'text-grey-navy': true,
+            'text-grey-navy': true && !fourCorrect && fourIncorrect!,
             'font-bold': true,
+            'bg-green': fourCorrect,
+            'dark:bg-green': fourCorrect,
             'bg-puple': opt4,
             'dark:bg-puple': opt4,
 
-            'text-white': opt4,
-            'bg-green': fourCorrect,
-            'text-slate-50': fourCorrect,
+            'text-white': opt4 || fourCorrect || fourIncorrect,
             'bg-red': fourIncorrect,
             'dark:bg-red': fourIncorrect,
             'dark:text-white': fourIncorrect
@@ -335,7 +339,9 @@
 <div *ngIf="showGrade" class="p-4 lg:flex justify-between">
   <div class="w-full">
     <h1 class="text-4xl font-thin dark:text-white">Quiz completed</h1>
-    <h1 class="text-4xl font-bold dark:text-white">You scored...</h1>
+    <h1 class="text-4xl font-bold dark:text-white my-4 lg:my-8">
+      You scored...
+    </h1>
   </div>
   <div class="lg:w-full">
     <div
