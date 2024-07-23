@@ -32,6 +32,7 @@
         'border-red': oneIncorrect,
         'shadow-md': true
       }"
+      id="attempt"
       (click)="handleAttempt(questions[currentQuestion].options[0], 0)"
     >
       <div class="flex items-center">
@@ -309,7 +310,7 @@
 
     <button
       class="p-4 bg-puple w-full rounded-lg text-white font-bold"
-      (click)="onSubmit($event)"
+      (click)="onSubmit()"
       *ngIf="!isSubmitted"
     >
       Submit Answer

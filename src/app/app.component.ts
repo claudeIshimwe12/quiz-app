@@ -36,4 +36,7 @@ export class AppComponent {
       if (s.title == q.title) this.currentQuestion = q;
     });
   }
+  onPlayAgain() {
+    this.isQuizStarted = false;
+  }
 }

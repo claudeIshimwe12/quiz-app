@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import Question from '../../model/question';
 @Component({
   selector: 'app-question',
@@ -9,6 +9,8 @@ export class QuestionComponent {
   @Input() questions: Question[] = [
     { question: '', options: [''], answer: '' },
   ];
+
+  @Output() onAgain: EventEmitter<any> = new EventEmitter();
   @Input() icon: string = '';
   @Input() title: string = '';
   grade: number = 0;
@@ -80,7 +82,7 @@ export class QuestionComponent {
     }
   }
 
-  onSubmit(e: MouseEvent) {
+  onSubmit() {
     if (this.attemptAnswer == '') {
       this.isAttempted = true;
 
@@ -167,11 +169,6 @@ export class QuestionComponent {
     this.threeIsCorrect = false;
     this.fourIsCorrect = false;
 
-    // this.oneIsCorrect = false;
-    // this.twoIsCorrect = false;
-    // this.threeIsCorrect = false;
-    // this.fourIsCorrect = false;
-
     this.oneCorrect = false;
     this.oneIncorrect = false;
     this.twoCorrect = false;
@@ -187,6 +184,13 @@ export class QuestionComponent {
     }
   }
   onPlayAgain() {
-    location.reload();
+    // location.reload();
+    this.onAgain.emit();
+    this.currentQuestion = 0;
+    this.isAttempted = false;
+    this.attemptAnswer = '';
+    this.isCorrect = false;
+    this.isSubmitted = false;
+    this.attemptIndex = 0;
   }
 }

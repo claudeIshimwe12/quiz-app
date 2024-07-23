@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
@@ -24,4 +24,32 @@ describe('AppComponent', () => {
       'Welcome to the'
     );
   });
+});
+
+describe('Should test the button click event', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+
+  beforeEach(fakeAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [],
+      declarations: [AppComponent],
+      providers: [],
+    })
+      .compileComponents()
+      .then(() => {
+        fixture = TestBed.createComponent(AppComponent);
+        component = fixture.componentInstance;
+      });
+  }));
+
+  it('should', fakeAsync(() => {
+    jest.spyOn(component, 'handleClick');
+
+    component.handleClick({ title: 'test-title', icon: 'undefined' });
+
+    fixture.whenStable().then(() => {
+      expect(component.handleClick).toHaveBeenCalled();
+    });
+  }));
 });

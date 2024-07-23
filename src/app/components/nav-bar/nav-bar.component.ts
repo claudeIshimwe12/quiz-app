@@ -6,7 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent {
-  @Input() logo: string | undefined = '';
+  @Input() logo: string = '';
+  @Input() category: string = '';
   isDark: boolean = false;
 
   toggleDarkMode() {
