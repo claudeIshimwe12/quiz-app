@@ -10,10 +10,16 @@
     >
       {{ questions[currentQuestion].question }}
     </h1>
+    <div
+      class="w-11/12 h-4 mx-4 bg-slate-50 flex items-center rounded-full my-4 lg:my-12 dark:bg-navy"
+    >
+      <div
+        class="h-2 mx-2 bg-puple rounded-full"
+        [style.width.%]="(currentQuestion + 1) * 10"
+      ></div>
+    </div>
   </div>
-  <!-- <div *ngFor="let option of questions[currentQuestion].options; let i = index">
-    <app-card [subject]="option" [index]="i"></app-card>
-  </div> -->
+
   <div class="p-4 lg:w-full">
     <div
       [ngClass]="{
@@ -337,7 +343,7 @@
           />
         </svg>
       </span>
-      <span>Please select an answer</span>
+      <span class="dark:text-white">Please select an answer</span>
     </div>
   </div>
 </div>
