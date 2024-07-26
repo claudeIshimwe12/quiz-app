@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,9 +8,15 @@ import { CardComponent } from './components/card/card.component';
 import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, CardComponent, QuestionComponent],
+  declarations: [
+    AppComponent,
+    NavBarComponent,
+    CardComponent,
+    QuestionComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

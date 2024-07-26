@@ -5,7 +5,7 @@
       {{ category }}
     </h1>
   </div>
-  <div class="buttons flex justify-between">
+  <div class="buttons flex justify-between cursor-pointer gap-4">
     <div>
       <img
         src="./assets/images/icon-sun-dark.svg"
@@ -18,19 +18,14 @@
         alt="sun icon"
       />
     </div>
-    <div class="mx-2">
-      <img
-        *ngIf="!isDark"
-        src="./assets/images/icon-toggle.svg"
-        alt="dark mode toggler"
-        (click)="toggleDarkMode()"
-      />
-      <img
-        *ngIf="isDark"
-        src="./assets/images/icon-toggle-dark.svg"
-        alt="dark mode toggler"
-        (click)="toggleDarkMode()"
-      />
+    <div
+      class="h-6 w-12 bg-puple flex items-center rounded-full"
+      (click)="toggleDarkMode()"
+    >
+      <div
+        class="bg-white rounded-full w-5 h-5 duration-200 ml-1"
+        [ngClass]="{ 'translate-x-full': isDark }"
+      ></div>
     </div>
     <div>
       <img
